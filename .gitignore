@@ -1,0 +1,43 @@
+﻿# Build output
+bin/
+obj/
+
+# Publish output
+publish/
+
+# User/IDE files
+*.user
+*.suo
+*.DotSettings.user
+.vs/
+.vscode/
+.idea/
+
+# OS files
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Sensitive files
+secrets.json
+*.pfx
+*.key
+*.jks
+keystore/
+
+# Test results
+TestResults/
+
+# NuGet packages
+*.nupkg
+packages/
+
+# Coverage reports
+coverage/
+
+# Misc
+screenshots/
+old/
+Debug/
+Release/
+
