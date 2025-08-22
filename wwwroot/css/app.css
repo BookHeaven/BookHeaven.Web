@@ -9,6 +9,12 @@ html, body {
     @apply min-h-screen bg-(--background-color) text-white;
 }
 
+@layer theme {
+    p {
+        @apply text-slate-300;
+    }
+}
+
 @layer utilities {
     .nav-link {
         @apply px-2 py-1.5 rounded hover:bg-(--color-primary)/10 transition-colors text-nowrap;
