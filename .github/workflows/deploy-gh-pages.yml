@@ -21,6 +21,18 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '9.0.x'
+          
+      - name: Setup node js
+        uses: actions/setup-node@v3
+        with:
+          node-version: latest
+          cache: 'npm'
+          
+      - name: Install npm packages
+        run: npm ci
+
+      - name: Build tailwindcss
+        run: npm run tailwindcss:build
 
       - name: Publish Blazor WebAssembly
         run: dotnet publish BookHeaven.Web.csproj -c Release -o publish

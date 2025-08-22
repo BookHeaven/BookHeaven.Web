@@ -32,6 +32,9 @@ TestResults/
 *.nupkg
 packages/
 
+# NPM packages
+node_modules/
+
 # Coverage reports
 coverage/
 
@@ -40,4 +43,5 @@ screenshots/
 old/
 Debug/
 Release/
+wwwroot/css/app.min.css
 

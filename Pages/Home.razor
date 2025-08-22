@@ -1,7 +1,47 @@
 ﻿@page "/"
+@using BookHeaven.Web.Components
+<PageTitle>Home | BookHeaven</PageTitle>
 
-<PageTitle>Home</PageTitle>
-
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
+<section class="text-center mb-10 md:mb-20 max-w-[700px] mx-auto">
+	<p class="font-bold text-4xl md:text-6xl mb-10">
+		Take <span class="text-(--color-primary)">control</span><br/>of your digital library
+	</p>
+	<p class="text-lg md:text-2xl text-balance break-keep mb-10">
+		BookHeaven is a tiny <span class="text-(--color-primary)">self-hosted</span> ecosystem that helps you manage and read your e-books in a very <span class="text-(--color-primary)">convenient</span> way.
+	</p>
+	<p class="italic text-balance mb-10 md:mb-20">Check out what each part of the ecosystem can do for you down below,<br class="hidden sm:inline"/> and press this button to make your life easier.</p>
+	<a class="mx-auto text-2xl bg-(--color-primary) px-5 py-2 rounded-lg font-bold uppercase hover:bg-(--color-primary)/70 transition-colors" href="https://github.com/BookHeaven/BookHeaven.Server">Get Started</a>
+</section>
+<hr class="my-10 md:my-20 text-neutral-700"/>
+<section class="flex flex-col">
+	<h1 class="text-nowrap text-2xl md:text-4xl font-bold">BookHeaven <span class="text-(--color-primary)">Server</span></h1>
+	<div class="flex items-center gap-2 mt-3">
+		<Pill Text="web" />
+		<Pill Text="docker" />
+	</div>
+	<p class="my-5 ms-2 text-slate-300">
+		Upload your e-books and organize them to your liking into authors, series and tags. You can also upload fonts so your devices can download and use them.<br/>
+		It's really easy to set up and use, and you can run it on any device that supports Docker.<br/>
+	</p>
+	<img src="img/server-img.png" class="rounded-2xl border-2 border-(--color-primary) glow mt-10 mx-2 md:mx-5" alt="" />
+</section>
+<hr class="my-10 md:my-20 text-neutral-700"/>
+<section class="flex flex-col">
+	<h1 class="text-nowrap text-2xl md:text-4xl font-bold">BookHeaven <span class="text-(--color-primary)">Reader</span></h1>
+	<div class="flex items-center gap-2 mt-3">
+		<Pill Text="android"/>
+		<Pill Text="e-reader"/>
+		<Pill Text="e-ink"/>
+		<Pill Text="launcher"/>
+	</div>
+	<p class="my-5 ms-2 text-slate-300">
+		If you have an android e-reader, you are in luck. With this app you'll be able to connect to your server and easily download and read all of your books.<br/>
+		But not only that, it will also track your progress and reading time for each book, which you can manually sync to your server at any time.<br/>
+		No connection required at all for regular use, so you can save your precious battery life.
+	</p>
+	<div class="grid grid-cols-3 gap-1 bg-black overflow-hidden rounded-2xl border-2 border-(--color-primary) glow px-2 md:px-5 pt-2 md:pt-5 mt-10 mx-2 md:mx-5">
+		<img src="img/reader-img.png" class="grayscale" alt=""/>
+		<img src="img/reader-book.png" class="grayscale" alt=""/>
+		<img src="img/reader-apps.png" class="grayscale" alt=""/>
+	</div>
+</section>

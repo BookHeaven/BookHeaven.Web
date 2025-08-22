@@ -11,8 +11,14 @@
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.8" PrivateAssets="all"/>
     </ItemGroup>
 
-    <Target Name="CreateNoJekyll" AfterTargets="Publish">
+    <ItemGroup>
+      <None Update=".nojekyll">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+    <!--<Target Name="CreateNoJekyll" AfterTargets="Publish">
       <Exec Command="type NUL > $(PublishDir).nojekyll" />
-    </Target>
+    </Target>-->
 
 </Project>
