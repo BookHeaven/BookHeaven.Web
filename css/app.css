@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+:root {
+    --background-color: rgba(29,32,43,1);
+    --color-primary: #56b4ff;
+    --color-secondary: #3097f3;
+}
+
+html, body {
+    @apply min-h-screen bg-(--background-color) text-white;
+}
+
+@layer base {
+    p {
+        @apply text-slate-300;
+    }
+    
+    a {
+        @apply text-(--color-primary) hover:underline;
+    }
+    
+    code {
+        @apply bg-slate-800 text-(--color-primary) rounded px-1.5 py-0.5;
+    }
+}
+
+@layer utilities {
+    .nav-link {
+        @apply px-2 py-1.5 rounded hover:bg-(--color-primary)/10 transition-colors text-nowrap text-neutral-300 !no-underline;
+        
+        &.active {
+            @apply bg-(--color-primary)/10 text-(--color-primary);
+        }
+    }
+    
+    .icon-button {
+        @apply size-12 !p-0 !text-white flex items-center justify-center rounded-full;
+    }
+    
+    .glow {
+        @apply shadow-[0_0_20px_var(--color-primary)] 2xl:shadow-[0_0_50px_var(--color-primary)]
+    }
+}

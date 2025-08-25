@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookHeaven.Web</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.svg" />
+    <link rel="stylesheet" href="css/app.min.css" />
+    <link href="BookHeaven.Web.styles.css" rel="stylesheet" />
+    <script type="importmap">{
+  "imports": {
+    "./_framework/blazor.webassembly.js": "./_framework/blazor.webassembly.xw4wgiq9yv.js",
+    "./_framework/dotnet.js": "./_framework/dotnet.f8ha3ktovy.js",
+    "./_framework/dotnet.native.js": "./_framework/dotnet.native.9g24l9wfhg.js",
+    "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.ph7fh99gkp.js"
+  },
+  "scopes": {},
+  "integrity": {
+    "./_framework/blazor.webassembly.js": "sha256-4VhGpDKrk6JU6HNH3FIn2NnTm4iZClJNjB79A0J0b6s=",
+    "./_framework/blazor.webassembly.xw4wgiq9yv.js": "sha256-4VhGpDKrk6JU6HNH3FIn2NnTm4iZClJNjB79A0J0b6s=",
+    "./_framework/dotnet.f8ha3ktovy.js": "sha256-v/jKPR/seKIz+wr0Wg4H9awUKElQpafZ48bZyzgQgIs=",
+    "./_framework/dotnet.js": "sha256-v/jKPR/seKIz+wr0Wg4H9awUKElQpafZ48bZyzgQgIs=",
+    "./_framework/dotnet.native.9g24l9wfhg.js": "sha256-l2H6NB2XiXzkL+mBlGR0GHqn+Lmg9aYXFaJA5qwYyaA=",
+    "./_framework/dotnet.native.js": "sha256-l2H6NB2XiXzkL+mBlGR0GHqn+Lmg9aYXFaJA5qwYyaA=",
+    "./_framework/dotnet.runtime.js": "sha256-rdihovkLP6EC/W6cLcN7bWmttka7nEMsBOkFzn26gls=",
+    "./_framework/dotnet.runtime.ph7fh99gkp.js": "sha256-rdihovkLP6EC/W6cLcN7bWmttka7nEMsBOkFzn26gls="
+  }
+}</script>
+</head>
+<body>
+<div id="app">
+    <div class="flex items-center justify-center h-screen">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-loader-2 animate-spin size-40">
+            <path stroke="none"
+                    d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 3a9 9 0 1 0 9 9" />
+        </svg>
+    </div>
+</div>
+<!-- <div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="." class="reload">Reload</a>
+    <span class="dismiss">🗙</span>
+</div> -->
+<script src="js/decode.js"></script>
+<script src="_framework/blazor.webassembly.xw4wgiq9yv.js" autostart="false"></script>
+<script>
+    Blazor.start({
+        loadBootResource: function (type, name, defaultUri, integrity) {
+            // For framework resources, use the precompressed .br files for faster downloads
+            // This is needed only because GitHub pages doesn't natively support Brotli (or even gzip for .dll files)
+            if (type !== 'dotnetjs' && location.hostname !== 'localhost') {
+                return (async function () {
+                    const response = await fetch(defaultUri + '.br', { cache: 'no-cache' });
+                    if (!response.ok) {
+                        throw new Error(response.statusText);
+                    }
+                    const originalResponseBuffer = await response.arrayBuffer();
+                    const originalResponseArray = new Int8Array(originalResponseBuffer);
+                    const decompressedResponseArray = BrotliDecode(originalResponseArray);
+                    const contentType = type === 'dotnetwasm' ? 'application/wasm' : 'application/octet-stream';
+                    return new Response(decompressedResponseArray, { headers: { 'content-type': contentType } });
+                })();
+            }
+        }
+    });
+</script>
+</body>
+</html>
