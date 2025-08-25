@@ -11,27 +11,34 @@
 	</p>
 	<p class="italic text-balance mb-10 md:mb-20 text-white">Check out what each part of the ecosystem can do for you down below,<br class="hidden sm:inline"/> and press this button to make your life easier.</p>
 	<a
-		class="mx-auto text-2xl bg-(--color-primary) px-5 py-2 rounded-lg font-bold hover:bg-(--color-primary)/70 transition-colors"
-		href="https://github.com/BookHeaven/BookHeaven.Server">
+		class="mx-auto text-2xl bg-(--color-secondary) px-5 py-2 rounded-lg font-bold hover:bg-(--color-secondary)/70 transition-colors"
+		href="/getting-started">
 		Get Started
 	</a>
 </section>
 <hr class="my-10 md:my-20 text-neutral-700"/>
 <section class="flex flex-col">
-	<h1 class="text-nowrap text-2xl md:text-4xl font-bold">BookHeaven <span class="text-(--color-primary)">Server</span></h1>
+	<div class="flex items-center justify-between gap-5">
+		<h1 class="text-nowrap text-2xl md:text-4xl font-bold leading-none">BookHeaven <span class="text-(--color-primary)">Server</span></h1>
+		<GithubButtonLink Url="https://github.com/BookHeaven/BookHeaven.Server" />
+	</div>
+	
 	<div class="flex items-center gap-2 mt-3">
-		<Pill Text="web" />
-		<Pill Text="docker" />
+		<Pill Text="web"/>
+		<Pill Text="docker"/>
 	</div>
 	<p class="my-5 ms-2 text-slate-300">
 		Upload your e-books and organize them to your liking into authors, series and tags. You can also upload fonts so your devices can download and use them.<br/>
 		It's really easy to set up and use, and you can run it on any device that supports Docker.<br/>
 	</p>
-	<img src="img/server-img.png" class="rounded-2xl border-2 border-(--color-primary) glow mt-5 md:mt-10 mx-2 md:mx-5" alt="" />
+	<img src="img/server-img.png" class="rounded-2xl border-2 border-(--color-primary) glow mt-5 md:mt-10 mx-2 md:mx-5" alt=""/>
 </section>
 <hr class="my-10 md:my-20 text-neutral-700"/>
 <section class="flex flex-col">
-	<h1 class="text-nowrap text-2xl md:text-4xl font-bold">BookHeaven <span class="text-(--color-primary)">Reader</span></h1>
+	<div class="flex items-center justify-between gap-5">
+		<h1 class="text-nowrap text-2xl md:text-4xl font-bold leading-none">BookHeaven <span class="text-(--color-primary)">Reader</span></h1>
+		<GithubButtonLink Url="https://github.com/BookHeaven/BookHeaven.Reader" />
+	</div>
 	<div class="flex items-center gap-2 mt-3">
 		<Pill Text="android"/>
 		<Pill Text="e-reader"/>

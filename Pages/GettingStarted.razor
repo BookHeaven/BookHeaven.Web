@@ -1,0 +1,99 @@
+﻿@page "/getting-started"
+
+<PageTitle>Getting Started | BookHeaven</PageTitle>
+<section class="max-w-[700px]">
+	<p class="font-bold text-4xl md:text-6xl mb-10 text-white">
+		Getting Started with <span class="text-(--color-primary)">BookHeaven</span>
+	</p>
+	<p class="italic text-balance text-white">Follow the steps below to get your digital library up and running in no time.</p>
+</section>
+<hr class="my-5 md:my-10 text-neutral-700"/>
+<section class="flex flex-col gap-5">
+	<h1 class="text-(--color-primary) font-bold text-4xl mb-3">Server</h1>
+	<h2 class="text-2xl font-bold">Requirements</h2>
+	<ul class="list-disc ms-5">
+		<li><a href="https://docs.docker.com/engine/install/" target="_blank">Docker</a></li>
+	</ul>
+	<h2 class="text-2xl font-bold">Step 1 - Prepare your container</h2>
+	<p class="text-slate-300">
+		Create a <code>compose.yml</code> file with the following content:
+	</p>
+	<pre class="bg-neutral-900 rounded p-4 font-mono text-sm text-white whitespace-pre overflow-x-auto">
+services:
+	bookheaven:
+		image: ghcr.io/bookheaven/bookheaven-server:latest
+		container_name: bookheaven
+		volumes:
+			# point the /app/data path to a persistent location on your host
+			# this is where all your books, covers, fonts, etc will be stored
+			# make sure the user running the container down below has read and write permissions to this folder
+			- ./data:/app/data
+			# optional: if you want to import books by copying them directly into a folder on your host
+			- ./import:/app/import
+		ports:
+			# web ui
+			- 8080:8080
+			# optional: required for auto discovery, changing the default port is not supported for now since it's hardcoded in the client
+			- 27007:27007/udp
+		environment:
+			# optional: required for auto discovery, change to your desired domain or ip:port, including the protocol (http or https)
+			- SERVER_URL=https://bookheaven.yourdomain.tld
+			- TZ=Europe/Madrid
+		user: 1000:1000
+		restart: unless-stopped
+	</pre>
+	<h2 class="text-2xl font-bold">Step 2 - Spin up your container</h2>
+	<p class="text-slate-300">
+		Run the following command in the same folder where you created the <code>compose.yml</code> file:
+	</p>
+	<pre class="bg-neutral-900 rounded p-4 font-mono text-sm text-white whitespace-pre overflow-x-auto">docker compose up -d</pre>
+	<h2 class="text-2xl font-bold">Step 3 - Create your first profile</h2>
+	<p class="text-slate-300">
+		Open your browser and go to <code>@("http://<your-server-ip>:8080")</code>. You will be greeted by the profile selection screen prompting you to create your first profile.<br/>
+		Just click on the big "+" button, fill in your desired name and click save.<br/>
+	</p>
+	<h2 class="text-2xl font-bold">Step 4 - Start uploading books</h2>
+	<p class="text-slate-300">
+		Once inside the app, click on the upload button, located next to the search bar in the top right corner of the screen, to add your first book.<br/>
+		You could also add your books by copying them directly into the <code>/import</code> folder you created in step 1.<br/>
+		The server will read the metadata from the books and organize them into authors and series automatically and you can edit them at any time if you want.<br/>
+	</p>
+	<h2 class="text-2xl font-bold">Final Notes</h2>
+	<p class="text-slate-300">
+		I recommend you to use a reverse proxy in front of your Server to enable HTTPS and add a layer of security, but also because otherwise the Reader app might not be able to see the covers until it downloads the books, since it requires a secure connection to fetch them.<br/>
+	</p>
+</section>
+<hr class="my-5 md:my-10 text-neutral-700"/>
+<section class="flex flex-col gap-5">
+	<h1 class="text-(--color-primary) font-bold text-4xl mb-3">Reader</h1>
+	<h2 class="text-2xl font-bold">Requirements</h2>
+	<ul class="list-disc ms-5">
+		<li>Android 8.0 Oreo or higher</li>
+	</ul>
+	<h2 class="text-2xl font-bold">Step 1 - Download and install the app</h2>
+	<p class="text-slate-300">
+		You can download the app manually from the <a href="https://github.com/BookHeaven/BookHeaven.Reader/releases" target="_blank">main repository</a>, or you can use <a href="https://obtainium.imranr.dev/" target="_blank">Obtainium</a> which I highly recommend, since it will notify you when a new version is available and allow you to easily update it.<br/>
+		I won't be explaining here how Obtainium works, but it's really easy to use and you can find more information on their website.<br/>
+	</p>
+	<h2 class="text-2xl font-bold">Step 2 - Go through the setup process</h2>
+	<p class="text-slate-300">
+		Activate your Wi-Fi and launch the app.<br/>
+		When you open the app for the first time, you will be greeted by a setup wizard that will guide you through the process of connecting to your server.<br/>
+		If you have auto discovery enabled, the app should configure itself automatically, otherwise you will have to enter the server URL manually.<br/>
+		Once connected, you will be able to see the profiles you created in the server and select the one you want to use.<br/>
+		You can always change the active profile later.<br/>
+	</p>
+	<h2 class="text-2xl font-bold">Step 3 - Start downloading and reading books</h2>
+	<p class="text-slate-300">
+		Once inside the app, you will see and empty library and a button prompting you to download some books. So, click on it.<br/>
+		You will be able to see all the books available in the server, and you can download them by clicking on the download button on each book.<br/>
+		Once downloaded, you can read them by clicking on the book cover.<br/>
+		To customize your reading experience, you can open the overlay by tapping in the middle of the screen while a book is opened.<br/>
+		Have fun discovering how many options are available to you to make reading as comfortable as possible!<br/>
+	</p>
+	<h2 class="text-2xl font-bold">Final Notes</h2>
+	<p class="text-slate-300">
+		The app is designed to work offline, so you can read your books without an internet connection.<br/>
+		You can sync your progress manually by taping on the three dot button in the top right corner of the home screen.<br/>
+	</p>
+</section>
