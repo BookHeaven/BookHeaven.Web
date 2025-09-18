@@ -12,14 +12,15 @@
 	<h1 class="text-(--color-primary) font-bold text-4xl mb-3">Server</h1>
 	<h2 class="text-2xl font-bold">Requirements</h2>
 	<ul class="list-disc ms-5">
-		<li><a href="https://docs.docker.com/engine/install/" target="_blank">Docker</a></li>
+		<li><a href="https://docs.docker.com/engine/install/" target="_blank">Docker</a> or <a href="https://podman.io/docs/installation" target="_blank">Podman</a></li>
 	</ul>
-	<h2 class="text-2xl font-bold">Step 1 - Prepare your container</h2>
+	<h2 class="text-2xl font-bold">Step 1 - Prepare and spin up your container</h2>
+	<h3 class="text-xl">- Docker Compose</h3>
 	<p class="text-slate-300">
-		Create a <code>compose.yml</code> file with the following content:
+		Create a <code>compose.yml</code> file with the following content, making sure to customize it to your desired values:
 	</p>
-	<pre class="bg-neutral-900 rounded p-4 font-mono text-sm text-white whitespace-pre overflow-x-auto">
-services:
+	<pre>
+		<code class="language-yaml">services:
   bookheaven:
     image: ghcr.io/bookheaven/bookheaven-server:latest
     container_name: bookheaven
@@ -40,19 +41,38 @@ services:
       - SERVER_URL=https://bookheaven.yourdomain.tld
       - TZ=Europe/Madrid
     user: 1000:1000
-    restart: unless-stopped
+    restart: unless-stopped</code>
 	</pre>
-	<h2 class="text-2xl font-bold">Step 2 - Spin up your container</h2>
 	<p class="text-slate-300">
-		Run the following command in the same folder where you created the <code>compose.yml</code> file:
+		Then run the following command in the same folder where you created the <code>compose.yml</code> file:
 	</p>
-	<pre class="bg-neutral-900 rounded p-4 font-mono text-sm text-white whitespace-pre overflow-x-auto">docker compose up -d</pre>
-	<h2 class="text-2xl font-bold">Step 3 - Create your first profile</h2>
+	<pre>
+		<code class="language-bash">docker compose up -d</code>
+	</pre>
+	<h3 class="text-xl">- Docker Run</h3>
+	<pre>
+		<code class="language-bash">docker run -d --name bookheaven --user 1000:1000 \
+  -p 8080:8080 -p 27007:27007/udp \
+  -v $PWD/data:/app/data \
+  -v $PWD/import:/app/import \
+  -e SERVER_URL=https://bookheaven.yourdomain.tld \
+  ghcr.io/bookheaven/bookheaven-server:latest</code>
+	</pre>
+	<h3 class="text-xl">- Podman</h3>
+	<pre>
+		<code class="language-bash">podman run -d --name bookheaven --userns=keep-id \
+  -p 8080:8080 -p 27007:27007/udp \
+  -v $PWD/data:/app/data:Z,U \
+  -v $PWD/import:/app/import:Z,U \
+  -e SERVER_URL=https://bookheaven.yourdomain.tld \
+  ghcr.io/bookheaven/bookheaven-server:latest</code>
+	</pre>
+	<h2 class="text-2xl font-bold">Step 2 - Create your first profile</h2>
 	<p class="text-slate-300">
 		Open your browser and go to <code>@("http://<your-server-ip>:8080")</code>. You will be greeted by the profile selection screen prompting you to create your first profile.<br/>
 		Just click on the big "+" button, fill in your desired name and click save.<br/>
 	</p>
-	<h2 class="text-2xl font-bold">Step 4 - Start uploading books</h2>
+	<h2 class="text-2xl font-bold">Step 3 - Start uploading books</h2>
 	<p class="text-slate-300">
 		Once inside the app, click on the upload button, located next to the search bar in the top right corner of the screen, to add your first book.<br/>
 		You could also add your books by copying them directly into the <code>/import</code> folder you created in step 1.<br/>
@@ -99,3 +119,12 @@ services:
 		You can sync your progress manually by taping on the three dot button in the top right corner of the home screen.<br/>
 	</p>
 </section>
+
+@code {
+	[Inject] private IJSRuntime JsRuntime { get; set; } = null!;
+	protected override async Task OnAfterRenderAsync(bool firstRender)
+	{
+		if(firstRender) await JsRuntime.InvokeVoidAsync("Prism.highlightAll");
+	}
+
+}
