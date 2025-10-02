@@ -25,19 +25,24 @@
 <p>It consists of four projects (two shared libraries, two apps).</p>
 <p>It's built with modularity in mind, meaning that if you need a Reader in a platform that isn't officially supported (or you want for some reason build your own Server), chances are you don't have to start completely from scratch to develop your own app.</p>
 
-<h2 class="text-lg md:text-xl mt-10 mb-2"> > BookHeaven Domain</h2>
-<p>A .net 9 class library that contains all the domain models and business logic shared between the two apps.</p>
+<h2 class="text-lg md:text-xl mt-10 mb-2">BookHeaven Domain</h2>
+<a href="https://github.com/BookHeaven/BookHeaven.Domain" target="_blank" class="text-blue-400 hover:underline">https://github.com/BookHeaven/BookHeaven.Domain</a>
+<p>A .net library that contains all the domain models and business logic shared between the two apps.</p>
 <p>It uses Entity Framework Core with SQLite for the database and exposes many commands and queries built with MediatR to interact with it.</p>
 
-<h2 class="text-lg md:text-xl mt-10 mb-2"> > BookHeaven EpubManager</h2>
-<p>A .net 9 class library built from the ground up that contains all the logic to read and manipulate epub files.</p>
-<p>On top of the usual, exposes a method to apply some refactoring to the styles of a given chapter's content so it can easily be re-styled with some pre-defined CSS variables without messing too much with the original styling.</p>
+<h2 class="text-lg md:text-xl mt-10 mb-2">BookHeaven EbookManager</h2>
+<a href="https://github.com/BookHeaven/BookHeaven.EbookManager" target="_blank" class="text-blue-400 hover:underline">https://github.com/BookHeaven/BookHeaven.EbookManager</a>
+<p>A .net library built from the ground up that contains all the logic to read and manipulate ebook files.</p>
+<p>It can both read and replace metadata, as well as read all the contents converting them to html markup when necessary to be easily used in web applications like Blazor, or WebViews.</p>
+<p>Exposes a method to apply some refactoring to the styles of a given chapter so it can easily be re-styled with some provided CSS variables without messing too much with the original styling.</p>
 
-<h2 class="text-lg md:text-xl mt-10 mb-2"> > BookHeaven Server</h2>
+<h2 class="text-lg md:text-xl mt-10 mb-2">BookHeaven Server</h2>
+<a href="https://github.com/BookHeaven/BookHeaven.Server" target="_blank" class="text-blue-400 hover:underline">https://github.com/BookHeaven/BookHeaven.Server</a>
 <p>A Blazor Web App with global server interactivity built with the help of MudBlazor and TailwindCSS v4.</p>
 <p>It exposes a REST API that provides everything that the Reader app needs (download books, sync progress, backup settings, etc).</p>
 
-<h2 class="text-lg md:text-xl mt-10 mb-2"> > BookHeaven Reader</h2>
+<h2 class="text-lg md:text-xl mt-10 mb-2">BookHeaven Reader</h2>
+<a href="https://github.com/BookHeaven/BookHeaven.Reader" target="_blank" class="text-blue-400 hover:underline">https://github.com/BookHeaven/BookHeaven.Reader</a>
 <p>An Android app built with .net MAUI Blazor Hybrid with the help of TailwindCSS v4 that has been designed for e-ink devices first and foremost, although it should work in any modern Android device.</p>
 <p>Connects to the server to download books and such, but other than that, it works completely offline to save battery life.</p>
 <p>It has a built-in custom-made e-book reader with tons of text customizability and features, including image zooming.</p>
