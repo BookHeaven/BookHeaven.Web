@@ -1,48 +1,52 @@
 ﻿@page "/about"
 <PageTitle>About | BookHeaven</PageTitle>
 
-<h1 class="font-bold text-4xl md:text-6xl mb-10 text-white">About</h1>
-<hr class="my-5 md:my-10 text-neutral-700"/>
-<h2 class="font-bold text-xl md:text-2xl mt-10 mb-2">A bit of background</h2>
-<p>BookHeaven was born out of sheer laziness.</p>
-<p>I got myself an Android e-reader because I wanted to start reading, but I'm a tech guy, so physical books don't cut it.</p>
-<p>Also, I didn't want to lock myself into a specific brand or store.</p>
-<p>Mostly I thought, being Android, it would be super easy to grab books from the device without getting out of bed and track/backup my progress.</p>
-<p>Imagine my surprise when I realized it wasn't that easy... I mean, it was kinda possible by using multiple tools but that was too cumbersome for me.</p>
-<p>So I started looking at the epub spec and playing with it and ultimately decided to build a whole server/client solution myself.</p>
+<CenteredPage>
+	<h1 class="font-bold text-4xl md:text-6xl mb-10 text-white">About</h1>
+	<hr class="my-5 md:my-10 text-neutral-700"/>
+	<h2 class="font-bold text-xl md:text-2xl mt-10 mb-2">A bit of background</h2>
+	<p>BookHeaven was born out of sheer laziness.</p>
+	<p>I got myself an Android e-reader because I wanted to start reading, but I'm a tech guy, so physical books don't cut it.</p>
+	<p>Also, I didn't want to lock myself into a specific brand or store.</p>
+	<p>Mostly I thought, being Android, it would be super easy to grab books from the device without getting out of bed and track/backup my progress.</p>
+	<p>Imagine my surprise when I realized it wasn't that easy... I mean, it was kinda possible by using multiple tools but that was too cumbersome for me.</p>
+	<p>So I started looking at the epub spec and playing with it and ultimately decided to build a whole server/client solution myself.</p>
 
-<h2 class="font-bold text-xl md:text-2xl mt-10 mb-2">So, what is BookHeaven?</h2>
-<p>BookHeaven is a tiny ecosystem of apps that help you manage and read your e-books in a very convenient way.</p>
-<p>It consists of two main parts:</p>
-<ul class="list-disc list-inside my-2 text-slate-300">
-	<li><strong>BookHeaven Server</strong>, a self-hosted web app that allows you to upload and organize your e-books into authors, series and tags. You can create multiple profiles with their own reading history. You can also upload fonts so your devices can download and use them.</li>
-	<li><strong>BookHeaven Reader</strong>, an Android app that allows you to connect to your server and easily download and read all of your books. It will also track your progress and reading time for each book, which you can manually sync to your server at any time.</li>
-</ul>
-<p>Both apps are built with simplicity and ease of use in mind, so you can focus on what matters: reading.</p>
+	<h2 class="font-bold text-xl md:text-2xl mt-10 mb-2">So, what is BookHeaven?</h2>
+	<p>BookHeaven is a tiny ecosystem of apps that help you manage and read your e-books in a very convenient way.</p>
+	<p>It consists of two main parts:</p>
+	<ul class="list-disc list-inside my-2 text-slate-300">
+		<li><strong>BookHeaven Server</strong>, a self-hosted web app that allows you to upload and organize your e-books into authors, series and tags. You can create multiple profiles with their own reading history. You can also upload fonts so your devices can download and use them.</li>
+		<li><strong>BookHeaven Reader</strong>, an Android app that allows you to connect to your server and easily download and read all of your books. It will also track your progress and reading time for each book, which you can manually sync to your server at any time.</li>
+	</ul>
+	<p>Both apps are built with simplicity and ease of use in mind, so you can focus on what matters: reading.</p>
 
-<h2 class="font-bold text-xl md:text-2xl mt-10 mb-2">Getting more technical</h2>
-<p>BookHeaven is built on the latest .Net technologies with C#.</p>
-<p>It consists of four projects (two shared libraries, two apps).</p>
-<p>It's built with modularity in mind, meaning that if you need a Reader in a platform that isn't officially supported (or you want for some reason build your own Server), chances are you don't have to start completely from scratch to develop your own app.</p>
+	<h2 class="font-bold text-xl md:text-2xl mt-10 mb-2">Getting more technical</h2>
+	<p>BookHeaven is built on the latest .Net technologies with C#.</p>
+	<p>It consists of four projects (two shared libraries, two apps).</p>
+	<p>It's built with modularity in mind, meaning that if you need a Reader in a platform that isn't officially supported (or you want for some reason build your own Server), chances are you don't have to start completely from scratch to develop your own app.</p>
 
-<h2 class="text-lg md:text-xl mt-10 mb-2">BookHeaven Domain</h2>
-<a href="https://github.com/BookHeaven/BookHeaven.Domain" target="_blank" class="text-blue-400 hover:underline">https://github.com/BookHeaven/BookHeaven.Domain</a>
-<p>A .net library that contains all the domain models and business logic shared between the two apps.</p>
-<p>It uses Entity Framework Core with SQLite for the database and exposes many commands and queries built with MediatR to interact with it.</p>
+	<h2 class="text-lg md:text-xl mt-10 mb-2">BookHeaven Domain</h2>
+	<a href="https://github.com/BookHeaven/BookHeaven.Domain" target="_blank" class="text-blue-400 hover:underline">https://github.com/BookHeaven/BookHeaven.Domain</a>
+	<p>A .net library that contains all the domain models and business logic shared between the two apps.</p>
+	<p>It uses Entity Framework Core with SQLite for the database and exposes many commands and queries built with MediatR to interact with it.</p>
 
-<h2 class="text-lg md:text-xl mt-10 mb-2">BookHeaven EbookManager</h2>
-<a href="https://github.com/BookHeaven/BookHeaven.EbookManager" target="_blank" class="text-blue-400 hover:underline">https://github.com/BookHeaven/BookHeaven.EbookManager</a>
-<p>A .net library built from the ground up that contains all the logic to read and manipulate ebook files.</p>
-<p>It can both read and replace metadata, as well as read all the contents converting them to html markup when necessary to be easily used in web applications like Blazor, or WebViews.</p>
-<p>Exposes a method to apply some refactoring to the styles of a given chapter so it can easily be re-styled with some provided CSS variables without messing too much with the original styling.</p>
+	<h2 class="text-lg md:text-xl mt-10 mb-2">BookHeaven EbookManager</h2>
+	<a href="https://github.com/BookHeaven/BookHeaven.EbookManager" target="_blank" class="text-blue-400 hover:underline">https://github.com/BookHeaven/BookHeaven.EbookManager</a>
+	<p>A .net library built from the ground up that contains all the logic to read and manipulate ebook files.</p>
+	<p>It can both read and replace metadata, as well as read all the contents converting them to html markup when necessary to be easily used in web applications like Blazor, or WebViews.</p>
+	<p>Exposes a method to apply some refactoring to the styles of a given chapter so it can easily be re-styled with some provided CSS variables without messing too much with the original styling.</p>
 
-<h2 class="text-lg md:text-xl mt-10 mb-2">BookHeaven Server</h2>
-<a href="https://github.com/BookHeaven/BookHeaven.Server" target="_blank" class="text-blue-400 hover:underline">https://github.com/BookHeaven/BookHeaven.Server</a>
-<p>A Blazor Web App with global server interactivity built with the help of MudBlazor and TailwindCSS v4.</p>
-<p>It exposes a REST API that provides everything that the Reader app needs (download books, sync progress, backup settings, etc).</p>
+	<h2 class="text-lg md:text-xl mt-10 mb-2">BookHeaven Server</h2>
+	<a href="https://github.com/BookHeaven/BookHeaven.Server" target="_blank" class="text-blue-400 hover:underline">https://github.com/BookHeaven/BookHeaven.Server</a>
+	<p>A Blazor Web App with global server interactivity built with the help of MudBlazor and TailwindCSS v4.</p>
+	<p>It exposes a REST API that provides everything that the Reader app needs (download books, sync progress, backup settings, etc).</p>
 
-<h2 class="text-lg md:text-xl mt-10 mb-2">BookHeaven Reader</h2>
-<a href="https://github.com/BookHeaven/BookHeaven.Reader" target="_blank" class="text-blue-400 hover:underline">https://github.com/BookHeaven/BookHeaven.Reader</a>
-<p>An Android app built with .net MAUI Blazor Hybrid with the help of TailwindCSS v4 that has been designed for e-ink devices first and foremost, although it should work in any modern Android device.</p>
-<p>Connects to the server to download books and such, but other than that, it works completely offline to save battery life.</p>
-<p>It has a built-in custom-made e-book reader with tons of text customizability and features, including image zooming.</p>
+	<h2 class="text-lg md:text-xl mt-10 mb-2">BookHeaven Reader</h2>
+	<a href="https://github.com/BookHeaven/BookHeaven.Reader" target="_blank" class="text-blue-400 hover:underline">https://github.com/BookHeaven/BookHeaven.Reader</a>
+	<p>An Android app built with .net MAUI Blazor Hybrid with the help of TailwindCSS v4 that has been designed for e-ink devices first and foremost, although it should work in any modern Android device.</p>
+	<p>Connects to the server to download books and such, but other than that, it works completely offline to save battery life.</p>
+	<p>It has a built-in custom-made e-book reader with tons of text customizability and features, including image zooming.</p>
+</CenteredPage>
+
+

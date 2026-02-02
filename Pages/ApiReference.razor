@@ -1,0 +1,59 @@
+﻿@page "/api-reference"
+<PageTitle>API reference</PageTitle>
+<style>
+	#app {
+		display: flex;
+		flex-direction: column;
+		height: 100dvh;
+	}
+	header {
+		position: static;
+	}
+	#api-ref > div {
+		height: 100%;
+	}
+	
+	#api-ref .scalar-app {
+		height: 100%;
+		min-height: unset;
+		overflow: hidden;
+		--full-height: 100%;
+		position: relative;
+	}
+
+	#api-ref .scalar-app.references-sidebar-mobile-open > div {
+		height: 100%;
+		overflow: hidden;
+		position: absolute;
+	}
+	
+	#api-ref main {
+		overflow-y: auto;
+	}
+	
+</style>
+<div id="api-ref" class="flex-1 overflow-y-auto"></div>
+
+<script>
+	Scalar.createApiReference("#api-ref", {
+		url: "https://raw.githubusercontent.com/BookHeaven/BookHeaven.Server/refs/heads/main/BookHeaven.Server.json",
+		darkMode: true,
+		hideDarkModeToggle: true,
+		hideClientButton: true,
+		hideTestRequestButton: true,
+		showDeveloperTools: 'never',
+		defaultOpenAllTags: true,
+		documentDownloadType: 'none',
+		agent: {
+			disabled: true
+		},
+		servers: [{
+			url: "https://{domain}",
+			variables: {
+				domain: {
+					default: "127.0.0.1:8080",	
+				},
+			}
+		}]
+	});
+</script>

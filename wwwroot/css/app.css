@@ -7,7 +7,7 @@
 }
 
 html, body {
-    @apply min-h-screen bg-(--background-color) text-white;
+    @apply h-dvh bg-(--background-color) text-white;
 }
 
 @layer base {
