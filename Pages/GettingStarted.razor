@@ -44,6 +44,9 @@
 	    user: 1000:1000
 	    restart: unless-stopped</code>
 		</pre>
+		<span class="px-3 py-2 bg-yellow-800 border border-yellow-500 rounded">
+			Avoid mapping the <code>/app/data</code> folder to a network share because this project uses SQLite, and it is known to cause issues.
+		</span>
 		<p class="text-slate-300">
 			Then run the following command in the same folder where you created the <code>compose.yml</code> file:
 		</p>
@@ -81,7 +84,7 @@
 		</p>
 		<h2 class="text-2xl font-bold">Final Notes</h2>
 		<p class="text-slate-300">
-			I recommend you to use a reverse proxy in front of your Server to enable HTTPS and add a layer of security, but also because otherwise the Reader app might not be able to see the covers until it downloads the books, since it requires a secure connection to fetch them.<br/>
+			I recommend you to use a reverse proxy in front of your Server to enable HTTPS and add a layer of security, but also because otherwise the Reader app might not be able to show the covers until it downloads the books, since it requires a secure connection to load them remotely.<br/>
 		</p>
 	</section>
 	<hr class="my-5 md:my-10 text-neutral-700"/>
@@ -92,7 +95,10 @@
 			<li>Android 10+</li>
 			<li class="italic">It MIGHT work on Android 8+ if you can update the webview to version 138.0.7204.181, which is the highest supported I could find. No promises.</li>
 		</ul>
-		<span class="px-3 py-2 bg-yellow-800 border border-yellow-500 rounded">Please make sure your Android System Webview is up to date to avoid any issues. You might need to update it manually. Check out the troubleshooting section on <a href="https://github.com/BookHeaven/BookHeaven.reader" target="_blank">the readme</a> for more info.</span>
+		<span class="px-3 py-2 bg-yellow-800 border border-yellow-500 rounded">
+			Please make sure your Android System Webview is up to date to avoid any issues. You might need to update it manually.<br/>
+			Check out the troubleshooting section on <a href="https://github.com/BookHeaven/BookHeaven.reader" target="_blank">the readme</a> for more info.
+		</span>
 		<h2 class="text-2xl font-bold">Step 1 - Download and install the app</h2>
 		<p class="text-slate-300">
 			You can download the app manually from the <a href="https://github.com/BookHeaven/BookHeaven.Reader/releases" target="_blank">main repository</a>, or you can use <a href="https://obtainium.imranr.dev/" target="_blank">Obtainium</a> which I highly recommend, since it will notify you when a new version is available and allow you to easily update it.<br/>
