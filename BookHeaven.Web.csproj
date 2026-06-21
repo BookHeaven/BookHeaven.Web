@@ -5,12 +5,13 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <OverrideHtmlAssetPlaceholders>true</OverrideHtmlAssetPlaceholders>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <WarningsNotAsErrors>NU1901;NU1902;NU1903;NU1904;$(WarningsNotAsErrors)</WarningsNotAsErrors>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.9" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="10.0.9" PrivateAssets="all" />
-        <PackageReference Include="Microsoft.DotNet.HotReload.WebAssembly.Browser" Version="10.0.204" />
     </ItemGroup>
 
     <ItemGroup>
