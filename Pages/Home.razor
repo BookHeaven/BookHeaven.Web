@@ -3,30 +3,31 @@
 <PageTitle>Home | BookHeaven</PageTitle>
 
 <CenteredPage>
-	<section class="text-center mb-10 md:mb-20 max-w-[700px] mx-auto">
-		<p class="font-bold text-4xl md:text-6xl mb-10 text-white">
+	<section class="mx-auto mb-10 max-w-[700px] text-center md:mb-20">
+		<p class="mb-10 text-4xl font-bold text-white md:text-6xl">
 			Take <span class="text-(--color-primary)">control</span><br/>of your digital library
 		</p>
-		<p class="text-lg md:text-2xl text-balance break-keep mb-10 text-white">
+		<p class="mb-10 text-lg text-balance break-keep text-white md:text-2xl">
 			BookHeaven is a tiny <span class="text-(--color-primary)">self-hosted</span> ecosystem that helps you manage and read your e-books in a very <span class="text-(--color-primary)">convenient</span> way.
 		</p>
-		<p class="italic text-balance mb-10 md:mb-20 text-white">Check out what each part of the ecosystem can do for you down below,<br class="hidden sm:inline"/> and press this button to make your life easier.</p>
+		<p class="mb-10 text-balance text-white italic md:mb-20">Check out what each part of the ecosystem can do for you down below,<br class="hidden sm:inline"/> and press this button to make your life easier.</p>
 		<a
-			class="mx-auto text-2xl bg-(--color-secondary) text-white !no-underline px-5 py-2 rounded-lg font-bold hover:bg-(--color-secondary)/70 transition-colors"
+			class="mx-auto rounded-lg bg-(--color-secondary) px-5 py-2 text-2xl font-bold text-white !no-underline transition-colors hover:bg-(--color-secondary)/70"
 			href="/getting-started">
 			Get Started
 		</a>
 	</section>
-	<hr class="my-10 md:my-20 text-neutral-700"/>
+	<hr class="my-10 text-neutral-700 md:my-20"/>
 	<section class="flex flex-col">
 		<div class="flex items-center justify-between gap-5">
-			<h1 class="text-nowrap text-2xl md:text-4xl font-bold leading-none">BookHeaven <span class="text-(--color-primary)">Server</span></h1>
+			<h1 class="text-2xl leading-none font-bold text-nowrap md:text-4xl">BookHeaven <span class="text-(--color-primary)">Server</span></h1>
 			<GithubButtonLink Url="https://github.com/BookHeaven/BookHeaven.Server" />
 		</div>
 		
-		<div class="flex items-center gap-2 mt-3">
+		<div class="mt-3 flex items-center gap-2">
 			<Pill Text="web"/>
 			<Pill Text="docker"/>
+			<Pill Text="e-reader"/>
 			<Pill Text="opds"/>
 			<Pill Text="koreader sync"/>
 		</div>
@@ -34,22 +35,22 @@
 			Upload your e-books and organize them to your liking into authors, series, tags and collections. You can also upload fonts so your devices can download and use them.<br/>
 			It's really easy to set up and use, and you can run it on any device that supports Docker.<br/>
 		</p>
-		<div class="relative mt-5 md:mt-10 mx-2 md:mx-5">
-			<img src="img/server-shelf.png" class="rounded-lg md:rounded-2xl border-2 border-(--color-primary) glow" alt=""/>
-			<div class="absolute -right-2 md:-right-5 -bottom-2 md:-bottom-5 w-3/12 md:w-2/12 bg-black p-1 md:p-2 outline outline-slate-700 rounded-xl overflow-hidden">
+		<div class="relative mx-2 mt-5 md:mx-5 md:mt-10">
+			<img src="img/server-shelf.png" class="glow rounded-lg border-2 border-(--color-primary) md:rounded-2xl" alt=""/>
+			<div class="absolute -right-2 -bottom-2 w-3/12 overflow-hidden rounded-xl bg-black p-1 outline outline-slate-700 md:-right-5 md:-bottom-5 md:w-2/12 md:p-2">
 				<img src="img/server-shelf-mobile.png" alt="" class="rounded-lg" />
 			</div>
 			
 		</div>
 		
 	</section>
-	<hr class="my-10 md:my-20 text-neutral-700"/>
+	<hr class="my-10 text-neutral-700 md:my-20"/>
 	<section class="flex flex-col">
 		<div class="flex items-center justify-between gap-5">
-			<h1 class="text-nowrap text-2xl md:text-4xl font-bold leading-none">BookHeaven <span class="text-(--color-primary)">Reader</span></h1>
+			<h1 class="text-2xl leading-none font-bold text-nowrap md:text-4xl">BookHeaven <span class="text-(--color-primary)">Reader</span></h1>
 			<GithubButtonLink Url="https://github.com/BookHeaven/BookHeaven.Reader" />
 		</div>
-		<div class="flex items-center gap-2 mt-3">
+		<div class="mt-3 flex items-center gap-2">
 			<Pill Text="android"/>
 			<Pill Text="e-reader"/>
 			<Pill Text="e-ink"/>
@@ -60,7 +61,7 @@
 			But not only that, it will also track your progress and reading time for each book, which you can manually sync to your server at any time.<br/>
 			No connection required at all for regular use, so you can save your precious battery life.
 		</p>
-		<div class="grid grid-cols-3 gap-1 bg-black overflow-hidden rounded-lg md:rounded-2xl border-2 border-(--color-primary) glow px-2 md:px-5 py-2 md:py-5 mt-5 md:mt-10 mx-2 md:mx-5">
+		<div class="glow mx-2 mt-5 grid grid-cols-3 gap-1 overflow-hidden rounded-lg border-2 border-(--color-primary) bg-black px-2 py-2 md:mx-5 md:mt-10 md:rounded-2xl md:px-5 md:py-5">
 			<img src="img/reader-books-home.png" class="grayscale" alt=""/>
 			<img src="img/reader-books-shelf.png" class="grayscale" alt=""/>
 			<img src="img/reader-book.png" class="grayscale" alt=""/>
